@@ -13,47 +13,8 @@
 <title>LANGUAGE LEARNING APP</title>
 <link rel="icon" type="image/x-icon" href="../images/languageIcon.png">
 <link rel="stylesheet" th:href="@{/css/navbar.css}">
-
-<style>
-.content-wrapper {
-	margin-top: 20px;
-	padding: 30px;
-	background: white;
-	border-radius: 8px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.content-wrapper h2 {
-	font-size: 1.6em;
-	margin-bottom: 15px;
-}
-
-.content-wrapper p {
-	font-size: 1.1em;
-	line-height: 1.6;
-	margin-bottom: 15px;
-}
-
-.attached-file {
-	margin-top: 20px;
-	padding: 15px;
-	background: #f9f9f9;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-}
-
-.attached-file h4 {
-	margin: 0 0 10px 0;
-}
-
-.btn-primary {
-	margin-top: 10px;
-}
-
-.btn-secondary {
-	margin-top: 10px;
-}
-</style>
+<link rel="stylesheet" th:href="@{/css/contentDetailsPage.css}">
+<script src="/js/logout.js"></script>
 </head>
 <body>
 	<nav class="navbar">
@@ -83,24 +44,14 @@
 		</div>
 		<a
 			th:href="@{/instructor-page/courses/contents/create-practice-questions}"
-			class="btn btn-success mt-3">Create Practice Questions</a>
-		<a
-	th:href="@{/instructor-page/courses/content/{id}(id=${content.id})}"
-	class="btn btn-success mt-3">Practice Questions</a>
+			class="btn btn-success mt-3">Create Practice Questions</a> <a
+			th:href="@{/instructor-page/courses/content/{id}(id=${content.id})}"
+			class="btn btn-success mt-3">Practice Questions</a>
 		<div class="mt-3">
-			<a th:href="@{/instructor-page/courses/{id}(id=${content.course.id})}"
+			<a
+				th:href="@{/instructor-page/courses/{id}(id=${content.course.id})}"
 				class="btn btn-secondary">Back to Content List</a>
 		</div>
 	</div>
-
-
-
-	<script>
-		function logout() {
-			alert("You are logging out...");
-			window.location.href = "/logout";
-		}
-	</script>
-
 </body>
 </html>

@@ -13,49 +13,8 @@
 <title>LANGUAGE LEARNING APP</title>
 <link rel="icon" type="image/x-icon" href="../images/languageIcon.png">
 <link rel="stylesheet" th:href="@{/css/navbar.css}">
-
-<style>
-.form-container {
-	max-width: 600px;
-	margin: 0 auto;
-	padding: 20px;
-	background-color: #fff;
-	border-radius: 10px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.form-group label {
-	font-weight: bold;
-	color: #555;
-}
-
-.form-group input, .form-group textarea, .form-group select {
-	border-radius: 5px;
-	border: 1px solid #ddd;
-	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-	border-color: #9b59b6;
-	box-shadow: 0 0 0 0.2rem rgba(155, 89, 182, 0.25);
-}
-
-.btn-primary {
-	background-color: #9b59b6;
-	border: none;
-	border-radius: 5px;
-	padding: 10px 20px;
-	font-weight: bold;
-}
-
-.btn-primary:hover {
-	background-color: #7d3c98;
-}
-
-.btn-container {
-	text-align: center;
-}
-</style>
+<link rel="stylesheet" th:href="@{/css/createContentForm.css}">
+<script src="/js/logout.js"></script>
 </head>
 <body>
 	<nav class="navbar">
@@ -74,18 +33,21 @@
 	<div class="container mt-5">
 		<div class="form-container">
 			<h1 class="text-center mb-4">Add New Content</h1>
-			<form th:action="@{/instructor-page/courses/create-content}" method="post" enctype="multipart/form-data">
+			<form th:action="@{/instructor-page/courses/create-content}"
+				method="post" enctype="multipart/form-data">
 				<div class="form-group mb-3">
-					<label for="contentTitle">Content Title</label>
-					<input type="text" class="form-control" id="contentTitle" name="contentTitle" required>
+					<label for="contentTitle">Content Title</label> <input type="text"
+						class="form-control" id="contentTitle" name="contentTitle"
+						required>
 				</div>
 				<div class="form-group mb-3">
 					<label for="contentInformation">Content Information</label>
-					<textarea class="form-control" id="contentInformation" name="contentInformation" rows="3" required></textarea>
+					<textarea class="form-control" id="contentInformation"
+						name="contentInformation" rows="3" required></textarea>
 				</div>
 				<div class="form-group mb-3">
-					<label for="courseId">Select Course</label>
-					<select class="form-select" id="courseId" name="courseId" required>
+					<label for="courseId">Select Course</label> <select
+						class="form-select" id="courseId" name="courseId" required>
 						<option value="" selected disabled>Select a course</option>
 						<th:block th:each="course : ${courses}">
 							<option th:value="${course.id}" th:text="${course.courseTitle}"></option>
@@ -93,8 +55,8 @@
 					</select>
 				</div>
 				<div class="form-group mb-3">
-					<label for="file">Upload File</label>
-					<input type="file" class="form-control" id="file" name="file">
+					<label for="file">Upload File</label> <input type="file"
+						class="form-control" id="file" name="file">
 				</div>
 				<div class="btn-container">
 					<button type="submit" class="btn btn-primary">Add Content</button>
@@ -102,12 +64,5 @@
 			</form>
 		</div>
 	</div>
-
-	<script>
-		function logout() {
-			alert("You are logging out...");
-			window.location.href = "/logout";
-		}
-	</script>
 </body>
 </html>

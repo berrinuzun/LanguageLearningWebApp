@@ -13,71 +13,8 @@
 <title>LANGUAGE LEARNING APP</title>
 <link rel="icon" type="image/x-icon" href="../images/languageIcon.png">
 <link rel="stylesheet" th:href="@{/css/navbar.css}">
-
-<style>
-.course-card {
-	margin-bottom: 20px;
-	border-radius: 10px;
-	overflow: hidden;
-}
-
-.course-card img {
-	width: 100%;
-	height: 300px;
-	object-fit: cover;
-	display: block;
-}
-
-.container h2 {
-	text-align: center;
-	margin-bottom: 30px;
-}
-
-.button-group {
-	display: flex;
-	gap: 10px;
-}
-
-.btn-custom {
-	display: inline-block;
-	padding: 10px 20px;
-	font-weight: bold;
-	border-radius: 5px;
-	text-align: center;
-	color: white;
-	text-decoration: none;
-	transition: background-color 0.3s ease;
-	border: none;
-}
-
-.btn-custom:hover {
-	opacity: 0.9;
-}
-
-.btn-primary {
-	background-color: #007bff;
-}
-
-.btn-primary:hover {
-	background-color: #0056b3;
-}
-
-.btn-secondary {
-	background-color: green;
-}
-
-.btn-secondary:hover {
-	background-color: darkgreen;
-}
-
-.btn-danger {
-	background-color: #dc3545;
-}
-
-.btn-danger:hover {
-	background-color: #c82333;
-}
-</style>
+<link rel="stylesheet" th:href="@{/css/coursesPage.css}">
+<script src="/js/logout.js"></script>
 </head>
 <body>
 	<nav class="navbar">
@@ -123,17 +60,12 @@
 			</div>
 		</div>
 		<div class="add-course-btn mt-3">
-			<a href="/instructor-page/add-course" class="btn btn-success btn-custom">Add
-				Course</a>
+			<a href="/instructor-page/add-course"
+				class="btn btn-success btn-custom">Add Course</a>
 		</div>
 	</div>
 
 	<script>
-		function logout() {
-			alert("You are logging out...");
-			window.location.href = "/logout";
-		}
-
 		function confirmDelete() {
 			return confirm('Are you sure you want to delete this course?');
 		}

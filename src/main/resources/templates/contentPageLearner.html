@@ -1,63 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
 
-    <title>LANGUAGE LEARNING APP</title>
-    <link rel="icon" type="image/x-icon" href="../images/languageIcon.png">
-    <link rel="stylesheet" th:href="@{/css/navbar.css}">
-
-    <style>
-        
-    </style>
+<title>LANGUAGE LEARNING APP</title>
+<link rel="icon" type="image/x-icon" href="../images/languageIcon.png">
+<link rel="stylesheet" th:href="@{/css/navbar.css}">
+<script src="/js/logout.js"></script>
 </head>
 <body>
-<nav class="navbar">
-    <h1>Language Learning App</h1>
-    <ul>
-        <li><a href="/learner-page">Home</a></li>
-        <li><a href="/learner-page/my-profile">My Profile</a></li>
-        <li><a href="/learner-page/courses">Courses</a></li>
-        <li><a href="/learner-page/appointments">Appointment</a></li>
-    </ul>
-    <div class="logout-container">
-        <button onclick="logout()" class="logout-button">Logout</button>
-    </div>
-</nav>
+	<nav class="navbar">
+		<h1>Language Learning App</h1>
+		<ul>
+			<li><a href="/learner-page">Home</a></li>
+			<li><a href="/learner-page/my-profile">My Profile</a></li>
+			<li><a href="/learner-page/courses">Courses</a></li>
+			<li><a href="/learner-page/appointments">Appointment</a></li>
+		</ul>
+		<div class="logout-container">
+			<button onclick="logout()" class="logout-button">Logout</button>
+		</div>
+	</nav>
 
-<div class="container mt-5">
-    <h2>Manage Contents</h2>
-    <table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="content : ${contents}">
-            <td th:text="${content.contentTitle}"></td>
-            <td th:text="${content.contentInformation}"></td>
-            <td>
-                <a th:href="@{/learner-page/courses/contents/{id}(id=${content.id})}" class="btn btn-info btn-sm">View</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+	<div class="container mt-5">
+		<h2>Manage Contents</h2>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="content : ${contents}">
+					<td th:text="${content.contentTitle}"></td>
+					<td th:text="${content.contentInformation}"></td>
+					<td><a
+						th:href="@{/learner-page/courses/contents/{id}(id=${content.id})}"
+						class="btn btn-info btn-sm">View</a></td>
+				</tr>
+			</tbody>
+		</table>
 
-</div>
-
-<script>
-    function logout() {
-        alert("You are logging out...");
-        window.location.href = "/logout";
-    }
-</script>
-
+	</div>
 </body>
 </html>

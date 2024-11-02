@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.container {
+	background-color: white;
+	border-radius: 8px;
+	padding: 30px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+	margin-bottom: 20px;
+	color: #333;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+.form-control, .form-select {
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	transition: border-color 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+	border-color: #9b59b6; /* Change border color on focus */
+	box-shadow: 0 0 0 0.2rem rgba(155, 89, 182, 0.25);
+}
+
+.btn-warning {
+	background-color: #f39c12;
+	border: none;
+}
+
+.btn-warning:hover {
+	background-color: #e67e22;
+}
+
+.btn-secondary {
+	margin-left: 10px;
+}

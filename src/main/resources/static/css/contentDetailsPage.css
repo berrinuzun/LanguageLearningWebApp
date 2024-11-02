@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.content-wrapper {
+	margin-top: 20px;
+	padding: 30px;
+	background: white;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content-wrapper h2 {
+	font-size: 1.6em;
+	margin-bottom: 15px;
+}
+
+.content-wrapper p {
+	font-size: 1.1em;
+	line-height: 1.6;
+	margin-bottom: 15px;
+}
+
+.attached-file {
+	margin-top: 20px;
+	padding: 15px;
+	background: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+.attached-file h4 {
+	margin: 0 0 10px 0;
+}
+
+.btn-primary {
+	margin-top: 10px;
+}
+
+.btn-secondary {
+	margin-top: 10px;
+}

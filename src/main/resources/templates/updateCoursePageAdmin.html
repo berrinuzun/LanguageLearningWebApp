@@ -13,49 +13,8 @@
 <title>LANGUAGE LEARNING APP</title>
 <link rel="icon" type="image/x-icon" href="../images/languageIcon.png">
 <link rel="stylesheet" th:href="@{/css/navbar.css}">
-
-<style>
-.form-container {
-	max-width: 600px;
-	margin: 0 auto;
-	padding: 20px;
-	background-color: #fff;
-	border-radius: 10px;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.form-group label {
-	font-weight: bold;
-	color: #555;
-}
-
-.form-group input, .form-group textarea {
-	border-radius: 5px;
-	border: 1px solid #ddd;
-	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.form-group input:focus, .form-group textarea:focus {
-	border-color: #9b59b6;
-	box-shadow: 0 0 0 0.2rem rgba(155, 89, 182, 0.25);
-}
-
-.btn-primary {
-	background-color: #9b59b6;
-	border: none;
-	border-radius: 5px;
-	padding: 10px 20px;
-	font-weight: bold;
-}
-
-.btn-primary:hover {
-	background-color: #7d3c98;
-}
-
-.btn-container {
-	text-align: center;
-}
-</style>
+<link rel="stylesheet" th:href="@{/css/updateCoursePage.css}">
+<script src="/js/logout.js"></script>
 </head>
 <body>
 	<nav class="navbar">
@@ -100,13 +59,5 @@
 			</form>
 		</div>
 	</div>
-
-	<script>
-		function logout() {
-			alert("You are logging out...");
-			window.location.href = "/logout";
-		}
-	</script>
-
 </body>
 </html>

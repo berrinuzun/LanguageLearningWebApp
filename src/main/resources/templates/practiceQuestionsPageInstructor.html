@@ -13,79 +13,8 @@
 <title>LANGUAGE LEARNING APP</title>
 <link rel="icon" type="image/x-icon" href="../images/languageIcon.png">
 <link rel="stylesheet" th:href="@{/css/navbar.css}">
-
-<style>
-.content-container {
-	padding: 20px;
-	background-color: white;
-	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	margin: 20px;
-}
-
-h2 {
-	margin-bottom: 20px;
-	color: #333;
-}
-
-table {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-th, td {
-	padding: 12px;
-	text-align: left;
-	border-bottom: 1px solid #ddd;
-}
-
-th {
-	background-color: #f8f9fa;
-}
-
-tr:hover {
-	background-color: #f1f1f1;
-}
-
-.update-button, .delete-button {
-	padding: 6px 12px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: background-color 0.3s ease;
-}
-
-.update-button {
-	background-color: #007bff;
-	color: white;
-}
-
-.update-button:hover {
-	background-color: #0056b3;
-}
-
-.delete-button {
-	background-color: #dc3545;
-	color: white;
-	margin-left: 5px;
-}
-
-.delete-button:hover {
-	background-color: #c82333;
-}
-
-.correct-answer {
-	display: none;
-}
-
-tr:hover .correct-answer {
-	display: inline;
-}
-
-tr:hover td:not(:last-child) {
-	color: rgba(0, 0, 0, 0.5);
-}
-</style>
+<link rel="stylesheet" th:href="@{/css/practiceQuestionsPage.css}">
+<script src="/js/logout.js"></script>
 </head>
 <body>
 	<nav class="navbar">
@@ -137,12 +66,5 @@ tr:hover td:not(:last-child) {
 			</tbody>
 		</table>
 	</div>
-
-	<script>
-		function logout() {
-			alert("You are logging out...");
-			window.location.href = "/logout";
-		}
-	</script>
 </body>
 </html>

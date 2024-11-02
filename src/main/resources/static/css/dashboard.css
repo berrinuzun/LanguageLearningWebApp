@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.content {
+	padding: 20px;
+	text-align: center;
+}
+
+.welcome-message {
+	margin-bottom: 20px;
+	font-size: 2em;
+	color: #333;
+}
+
+.image-container {
+	margin-bottom: 20px;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px;
+	transition: transform 0.3s ease;
+}
+
+.image-container img:hover {
+	transform: scale(1.05);
+}
