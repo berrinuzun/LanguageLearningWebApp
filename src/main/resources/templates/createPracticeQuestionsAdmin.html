@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+
+<title>LANGUAGE LEARNING APP</title>
+<link rel="icon" type="image/x-icon" href="../images/languageIcon.png">
+<link rel="stylesheet" th:href="@{/css/navbar.css}">
+
+<style>
+.addcnt {
+	margin-top: 30px;
+	padding: 20px;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #f9f9f9;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.addcnt h1 {
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 30px;
+}
+
+.addcnt label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+.addcnt input[type="text"], .addcnt textarea {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	height: 30px;
+	vertical-align: middle;
+	padding-top: 7px;
+}
+
+.addcnt button {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	background-color: #45b6fe;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.addcnt button:hover {
+	background-color: #1f8bcc;
+}
+
+.form-select {
+	height: 30px;
+	padding-top: 1px;
+	vertical-align: middle;
+}
+</style>
+</head>
+<body>
+	<nav class="navbar">
+		<h1>Language Learning App</h1>
+		<ul>
+			<li><a href="/admin-page">Home</a></li>
+			<li><a href="/admin-page/my-profile">My Profile</a></li>
+			<li><a href="/admin-page/courses">Courses</a></li>
+			<li><a href="/admin-page/appointments">Appointment</a></li>
+			<li><a href="/admin-page/user-management">User Management</a></li>
+		</ul>
+		<div class="logout-container">
+			<button onclick="logout()" class="logout-button">Logout</button>
+		</div>
+	</nav>
+
+	<div class="addcnt">
+		<h1>Add Practice Question</h1>
+		<form th:action="@{/admin-page/courses/contents/practice-questions}"
+			th:object="${practiceQuestions}" method="post">
+			<div class="form-group mb-3">
+				<label for="contentId">Select Content</label> <select
+					class="form-select" id="contentId" name="contentId" required>
+					<option value="" selected disabled>Select a content</option>
+					<th:block th:each="content : ${contents}">
+						<option th:value="${content.id}" th:text="${content.contentTitle}"></option>
+					</th:block>
+				</select>
+			</div>
+			<label for="question">Question:</label> <input type="text"
+				id="question" name="question" th:field="*{question}" required /> <label
+				for="optionA">Option A:</label> <input type="text" id="optionA"
+				name="optionA" th:field="*{optionA}" required /> <label
+				for="optionB">Option B:</label> <input type="text" id="optionB"
+				name="optionB" th:field="*{optionB}" required /> <label
+				for="optionC">Option C:</label> <input type="text" id="optionC"
+				name="optionC" th:field="*{optionC}" required /> <label
+				for="optionD">Option D:</label> <input type="text" id="optionD"
+				name="optionD" th:field="*{optionD}" required /> <label
+				for="correctAnswer">Correct Answer:</label> <input type="text"
+				id="correctAnswer" name="correctAnswer" th:field="*{correctAnswer}"
+				required />
+			<button type="submit">Add Question</button>
+		</form>
+	</div>
+
+	<script>
+		function logout() {
+			alert("You are logging out...");
+			window.location.href = "/logout";
+		}
+	</script>
+
+</body>
+</html>

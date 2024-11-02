@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+
+<title>LANGUAGE LEARNING APP</title>
+<link rel="icon" type="image/x-icon" href="../images/languageIcon.png">
+<link rel="stylesheet" th:href="@{/css/navbar.css}">
+
+<style>
+.content-container {
+	padding: 20px;
+	background-color: white;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	margin: 20px;
+}
+
+h2 {
+	margin-bottom: 20px;
+	color: #333;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 12px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+th {
+	background-color: #f8f9fa;
+}
+
+tr:hover {
+	background-color: #f1f1f1;
+}
+
+.update-button, .delete-button {
+	padding: 6px 12px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.update-button {
+	background-color: #007bff;
+	color: white;
+}
+
+.update-button:hover {
+	background-color: #0056b3;
+}
+
+.delete-button {
+	background-color: #dc3545;
+	color: white;
+	margin-left: 5px;
+}
+
+.delete-button:hover {
+	background-color: #c82333;
+}
+
+.correct-answer {
+	display: none;
+}
+
+tr:hover .correct-answer {
+	display: inline;
+}
+
+tr:hover td:not(:last-child) {
+	color: rgba(0, 0, 0, 0.5);
+}
+</style>
+</head>
+<body>
+	<nav class="navbar">
+		<h1>Language Learning App</h1>
+		<ul>
+			<li><a href="/admin-page">Home</a></li>
+			<li><a href="/admin-page/my-profile">My Profile</a></li>
+			<li><a href="/admin-page/courses">Courses</a></li>
+			<li><a href="/admin-page/appointments">Appointment</a></li>
+			<li><a href="/admin-page/user-management">User Management</a></li>
+		</ul>
+		<div class="logout-container">
+			<button onclick="logout()" class="logout-button">Logout</button>
+		</div>
+	</nav>
+
+	<div class="content-container">
+		<h2>Practice Questions</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Question</th>
+					<th>Option A</th>
+					<th>Option B</th>
+					<th>Option C</th>
+					<th>Option D</th>
+					<th>Correct Answer</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="practiceQuestion : ${practiceQuestions}">
+					<td th:text="${practiceQuestion.question}"></td>
+					<td th:text="${practiceQuestion.optionA}"></td>
+					<td th:text="${practiceQuestion.optionB}"></td>
+					<td th:text="${practiceQuestion.optionC}"></td>
+					<td th:text="${practiceQuestion.optionD}"></td>
+					<td><span class="correct-answer"
+						th:text="${practiceQuestion.correctAnswer}"></span></td>
+					<td><a
+						th:href="@{/admin-page/courses/contents/update-practice-question/{id}(id=${practiceQuestion.id})}">
+							<button class="update-button">Update</button>
+					</a>
+						<form
+							th:action="@{/admin-page/courses/contents/delete-practice-question/{id}(id=${practiceQuestion.id})}"
+							method="post" style="display: inline;">
+							<button type="submit" class="delete-button">Delete</button>
+						</form></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script>
+		function logout() {
+			alert("You are logging out...");
+			window.location.href = "/logout";
+		}
+	</script>
+</body>
+</html>

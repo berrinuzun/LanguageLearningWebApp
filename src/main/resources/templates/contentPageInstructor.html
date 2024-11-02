@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>LANGUAGE LEARNING APP</title>
+    <link rel="icon" type="image/x-icon" href="../images/languageIcon.png">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+
+    <style>
+        
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <h1>Language Learning App</h1>
+    <ul>
+        <li><a href="/instructor-page">Home</a></li>
+        <li><a href="/instructor-page/my-profile">My Profile</a></li>
+        <li><a href="/instructor-page/courses">Courses</a></li>
+        <li><a href="/instructor-page/appointments">Appointment</a></li>
+    </ul>
+    <div class="logout-container">
+        <button onclick="logout()" class="logout-button">Logout</button>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2>Manage Contents</h2>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="content : ${contents}">
+            <td th:text="${content.contentTitle}"></td>
+            <td th:text="${content.contentInformation}"></td>
+            <td>
+                <a th:href="@{/instructor-page/courses/contents/{id}(id=${content.id})}" class="btn btn-info btn-sm">View</a>
+                <a th:href="@{/instructor-page/courses/update-content/{id}(id=${content.id})}" class="btn btn-warning btn-sm">Edit</a>
+                <form th:action="@{/instructor-page/courses/delete-content/{id}(id=${content.id})}" method="post"
+                      style="display: inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+    <a href="/instructor-page/courses/create-content" class="btn btn-success">Create New Content</a>
+</div>
+
+<script>
+    function logout() {
+        alert("You are logging out...");
+        window.location.href = "/logout";
+    }
+</script>
+
+</body>
+</html>
